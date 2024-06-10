@@ -5,12 +5,17 @@ import axios from 'axios'
 const ViewAll = () => {
     const [data, setChange] = useState([])
     const fetchData = () => {
-        axios.get("https://anishpdm.github.io/dummy-api-new/student.json").then(
+        axios.get("https://courseapplogix.onrender.com/getdata").then(
             (response) => {
                 console.log(response.data)
                 setChange(response.data)
             }
-        ).catch().finally()
+        ).catch(
+            (error)=>{
+                console.log(error.message)
+                alert(error.message)
+            }
+        ).finally()
     }
     useEffect(() => { fetchData() }, [])
 
@@ -23,7 +28,7 @@ const ViewAll = () => {
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">id</th>
+                                    {/* <th scope="col">id</th> */}
                                     <th scope="col">firstname</th>
                                     <th scope="col">lastname</th>
                                     <th scope="col">college</th>
@@ -39,7 +44,7 @@ const ViewAll = () => {
                                 {data.map(
                                     (value, index) => {
                                         return <tr>
-                                            <th scope="row">{value.id}</th>
+                                            {/* <th scope="row">{value._id}</th> */}
                                             <td>{value.firstname}</td>
                                             <td>{value.lastname}</td>
                                             <td>{value.college}</td>
