@@ -5,7 +5,7 @@ import axios from 'axios'
 const ViewAll = () => {
     const [data, setChange] = useState([])
     const fetchData = () => {
-        axios.get("https://courseapplogix.onrender.com/getdata").then(
+        axios.get("http://localhost:8080/view").then(
             (response) => {
                 console.log(response.data)
                 setChange(response.data)
@@ -29,14 +29,15 @@ const ViewAll = () => {
                             <thead>
                                 <tr>
                                     {/* <th scope="col">id</th> */}
-                                    <th scope="col">firstname</th>
-                                    <th scope="col">lastname</th>
+                                    <th scope="col">name</th>
+                                    <th scope="col">rollNo</th>
+                                    <th scope="col">admNo</th>
                                     <th scope="col">college</th>
-                                    <th scope="col">Dob</th>
+{/*                                     
                                     <th scope="col">Course</th>
                                     <th scope="col">Mobile</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Address</th>
+                                    <th scope="col">Address</th> */}
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,14 +46,14 @@ const ViewAll = () => {
                                     (value, index) => {
                                         return <tr>
                                             {/* <th scope="row">{value._id}</th> */}
-                                            <td>{value.firstname}</td>
-                                            <td>{value.lastname}</td>
+                                            <td>{value.name}</td>
+                                            <td>{value.rollNo}</td>
+                                            <td>{value.admNo}</td>
                                             <td>{value.college}</td>
-                                            <td>{value.dob}</td>
-                                            <td>{value.course}</td>
+                                            {/* <td>{value.course}</td>
                                             <td>{value.mobile}</td>
                                             <td>{value.email}</td>
-                                            <td>{value.address}</td>
+                                            <td>{value.address}</td> */}
                                         </tr>
                                     }
                                 )

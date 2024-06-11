@@ -5,14 +5,10 @@ import axios from 'axios'
 const AddStud = () => {
     const [data, setData] = useState(
         {
-            "firstname": "",
-            "lastname": "",
-            "college": "",
-            "dob": "",
-            "course": "",
-            "mobile": "",
-            "email": "",
-            "address": ""
+            "name":"",
+            "rollNo":"",
+            "admNo":"",
+            "college":""
         }
     )
 
@@ -21,10 +17,10 @@ const AddStud = () => {
     }
     const readValue = () => {
         console.log(data)
-        axios.post("https://courseapplogix.onrender.com/addstudents", data).then(
+        axios.post("http://localhost:8080/add", data).then(
             (response) => {
                 console.log(response.data)
-                if (response.data.status == "success") {
+                if (response.data.status = "success") {
                     alert("ADDED")
                 }
                 else {
@@ -52,21 +48,24 @@ const AddStud = () => {
                             </div> */}
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                                 <label htmlFor="" className="form-label">firstname</label>
-                                <input type="text" className="form-control" name='firstname' value={data.firstname} onChange={inputHandler} />
+                                <input type="text" className="form-control" name='name' value={data.name} onChange={inputHandler} />
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">lastname</label>
-                                <input type="text" className="form-control" name='lastname' value={data.lastname} onChange={inputHandler} />
+                                <label htmlFor="" className="form-label">rollNo</label>
+                                <input type="text" className="form-control" name='rollNo' value={data.rollNo} onChange={inputHandler} />
+                            </div>
+                            <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                <label htmlFor="" className="form-label">admNo</label>
+                                <input type="date" name="admNo" id="" className="form-control" value={data.admNo} onChange={inputHandler} />
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                                 <label htmlFor="" className="form-label">college</label>
                                 <input type="text" className="form-control" name='college' value={data.college} onChange={inputHandler} />
                             </div>
-                            <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">date of birth</label>
-                                <input type="date" name="dob" id="" className="form-control" value={data.dob} onChange={inputHandler} />
-                            </div>
-                            <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            
+
+
+                            {/* <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                                 <label htmlFor="" className="form-label">course</label>
                                 <input type="text" className="form-control" name='course' value={data.course} onChange={inputHandler} />
                             </div>
@@ -81,7 +80,7 @@ const AddStud = () => {
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                                 <label htmlFor="" className="form-label">address</label>
                                 <input type="text" className="form-control" name='address' value={data.address} onChange={inputHandler} />
-                            </div>
+                            </div> */}
                             <div className="col col-12 col-sm-6 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                                 <button className="btn btn-success" onClick={readValue}>Add</button>
                             </div>
